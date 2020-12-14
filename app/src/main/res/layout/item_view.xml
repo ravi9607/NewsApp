@@ -61,27 +61,27 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/decp" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterButton
-        android:id="@+id/imageFilterButton"
-        android:layout_width="41dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="7dp"
-        android:src="@drawable/like"
-        app:layout_constraintStart_toEndOf="@+id/author"
-        app:layout_constraintTop_toBottomOf="@+id/decp"
-        tools:ignore="MissingConstraints" />
+<!--    <androidx.constraintlayout.utils.widget.ImageFilterButton-->
+<!--        android:id="@+id/imageFilterButton"-->
+<!--        android:layout_width="41dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="7dp"-->
+<!--        android:src="@drawable/like"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/author"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/decp"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
-    <androidx.constraintlayout.utils.widget.ImageFilterButton
-        android:layout_width="41dp"
-        android:layout_height="28dp"
-        android:onClick="shareNews"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/share"
-        app:layout_constraintStart_toEndOf="@+id/imageFilterButton"
-        app:layout_constraintTop_toBottomOf="@+id/decp"
-        tools:ignore="MissingConstraints" />
+<!--    <androidx.constraintlayout.utils.widget.ImageFilterButton-->
+<!--        android:layout_width="41dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:onClick="shareNews"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:src="@drawable/share"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageFilterButton"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/decp"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
