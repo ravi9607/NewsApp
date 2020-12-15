@@ -27,7 +27,7 @@ class ScienceActivity : AppCompatActivity(), NewsItemClicked {
     var isLike : Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.select_activity)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         fetchData()
@@ -128,11 +128,11 @@ class ScienceActivity : AppCompatActivity(), NewsItemClicked {
         Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
     }
 
-    fun likebtn(view: View) {
-        isLike=true
-        if(isLike == true){
-            like.setImageDrawable(ContextCompat.getDrawable(like.context,R.drawable.like1))
-        }
-    }
+//    fun likebtn(view: View) {
+//        isLike=true
+//        if(isLike == true){
+//            like.setImageDrawable(ContextCompat.getDrawable(like.context,R.drawable.like1))
+//        }
+//    }
 
 }

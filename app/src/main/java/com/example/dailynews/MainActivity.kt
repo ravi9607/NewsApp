@@ -1,6 +1,7 @@
 package com.example.dailynews
 
 import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,7 +18,7 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), NewsItemClicked {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var mAdapter: newsAdapter
     var currentUrl: String? =null
@@ -26,90 +27,63 @@ class MainActivity : AppCompatActivity(), NewsItemClicked {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        fetchData()
-        mAdapter = newsAdapter(this)
-        recyclerView.adapter = mAdapter
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_item,menu)
-        return true
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_item,menu)
+//        return true
+//    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when(item.itemId){
+//            R.id.refresh ->{
+//                true
+//            }
+//            else -> return super.onOptionsItemSelected(item)
+//        }
+//    }
+
+    fun headlineExecute(view: View) {
+        Toast.makeText(this, "Headline Section", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, HealthActivity::class.java)
+        startActivity(intent)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        return when(item.itemId){
-            R.id.refresh ->{
-                fetchData()
-
-                true
-            }
-
-            else -> return super.onOptionsItemSelected(item)
-        }
-
-
+    fun businessExecute(view: View) {
+        Toast.makeText(this, "Business Section", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, BusinessActivity::class.java)
+        startActivity(intent)
     }
 
-    private fun fetchData(){
-        progressBar.visibility = View.VISIBLE
-        val url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=0a0230f4833a48a59dbfefdc4bc7d3ef"
-        val jsonObjectRequest = object: JsonObjectRequest(
-            Method.GET,
-            url,
-            null,
-            Response.Listener {
-
-                val newsJsonArray = it.getJSONArray("articles")
-                val newsArray = ArrayList<News>()
-                for(i in 0 until newsJsonArray.length()){
-                    val newsJsonObject = newsJsonArray.getJSONObject(i)
-                    val news = News(
-                        newsJsonObject.getString("title"),
-                        newsJsonObject.getString("author"),
-                        newsJsonObject.getString("url"),
-                        newsJsonObject.getString("urlToImage"),
-                        newsJsonObject.getString("description")
-                    )
-                    newsArray.add(news)
-                    progressBar.visibility = View.GONE
-                    //Toast.makeText(this," updated", Toast.LENGTH_LONG).show()
-                }
-                mAdapter.updateNews(newsArray)
-            },
-            Response.ErrorListener {
-
-            }
-        ) {
-            override fun getHeaders(): MutableMap<String, String> {
-                val headers = HashMap<String, String>()
-                headers["User-Agent"] = "Mozilla/5.0"
-                return headers
-            }
-        }
-
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
+    fun technologyExecute(view: View) {
+        Toast.makeText(this, "Technology Section", Toast.LENGTH_LONG).show()
+        //val intent = Intent(this, TechnologyActivity::class.java)
+        //startActivity(intent)
     }
 
-    override fun onItemClicked(item: News) {
-        val builder = CustomTabsIntent.Builder()
-        val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(this, Uri.parse(item.url))
-
-        //Toast.makeText(this,"CLICKED ..${Uri.parse(item.url)}",Toast.LENGTH_LONG).show()
-        currentUrl= Uri.parse(item.url).toString()
+    fun scienceExecute(view: View) {
+        Toast.makeText(this, "Science Section", Toast.LENGTH_LONG).show()
+        //val intent = Intent(this, ScienceActivity::class.java)
+        //startActivity(intent)
     }
 
-    fun shareNews(view: View){
-//        val i = Intent(Intent.ACTION_SEND)
-//        i.type = "text/plain"
-//        i.putExtra(Intent.EXTRA_TEXT, "Hi, checkout this news  ${currentUrl}")
-//        startActivity(Intent.createChooser(i, "Share this news with"))
-
-
-        Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
+    fun sportsExecute(view: View) {
+        Toast.makeText(this, "Sports Section", Toast.LENGTH_LONG).show()
+        //val intent = Intent(this, SportsActivity::class.java)
+        //startActivity(intent)
     }
+
+    fun healthExecute(view: View) {
+        Toast.makeText(this, "Health Section", Toast.LENGTH_LONG).show()
+       // val intent = Intent(this, HealthActivity::class.java)
+        //startActivity(intent)
+    }
+
+    fun BBCexecute(view: View) {
+        Toast.makeText(this, "BBC Headlines", Toast.LENGTH_LONG).show()
+        //val intent = Intent(this, BBCheadlineActivity::class.java)
+        //startActivity(intent)
+    }
+
 
 }

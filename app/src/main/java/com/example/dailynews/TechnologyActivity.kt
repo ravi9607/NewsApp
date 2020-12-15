@@ -128,11 +128,11 @@ class TechnologyActivity : AppCompatActivity(), NewsItemClicked {
         Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
     }
 
-    fun likebtn(view: View) {
-        isLike=true
-        if(isLike == true){
-            like.setImageDrawable(ContextCompat.getDrawable(like.context,R.drawable.like1))
-        }
-    }
+//    fun likebtn(view: View) {
+//        isLike=true
+//        if(isLike == true){
+//            like.setImageDrawable(ContextCompat.getDrawable(like.context,R.drawable.like1))
+//        }
+//    }
 
 }
