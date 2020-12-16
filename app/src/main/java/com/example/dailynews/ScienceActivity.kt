@@ -71,7 +71,7 @@ class ScienceActivity : AppCompatActivity(), NewsItemClicked {
 
     private fun fetchData(){
         progressBar.visibility = View.VISIBLE
-        val url = "https://newsapi.org/v2/everything?q=apple&from=2020-12-11&to=2020-12-11&sortBy=popularity&apiKey=0a0230f4833a48a59dbfefdc4bc7d3ef"
+        val url = "https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=9485dbed563145c5b58b6800baf4c4be"
         val jsonObjectRequest = object: JsonObjectRequest(
                 Method.GET,
                 url,
@@ -87,6 +87,7 @@ class ScienceActivity : AppCompatActivity(), NewsItemClicked {
                                 newsJsonObject.getString("author"),
                                 newsJsonObject.getString("url"),
                                 newsJsonObject.getString("urlToImage"),
+                            newsJsonObject.getString("publishedAt"),
                                 newsJsonObject.getString("description")
                         )
                         newsArray.add(news)

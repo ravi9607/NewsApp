@@ -22,6 +22,9 @@
         <activity android:name=".HealthActivity"></activity>
         <activity android:name=".HeadlineActivity"></activity>
         <activity android:name=".BusinessActivity"></activity>
+        <activity android:name=".TechnologyActivity"></activity>
+        <activity android:name=".SportsActivity"></activity>
+        <activity android:name=".ScienceActivity"></activity>
     </application>
 
 </manifest>

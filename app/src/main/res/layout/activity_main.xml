@@ -7,43 +7,76 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="165dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="TOPIC"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523" />
+
     <Button
 
         android:id="@+id/button1"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/headlines"
-        android:padding="20dp"
+        android:layout_marginTop="105dp"
         android:background="@drawable/boarder2"
         android:onClick="headlineExecute"
+        android:padding="20dp"
+        android:text="@string/headlines"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button6"
         android:layout_width="250dp"
-        android:background="@drawable/boarder2"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/business"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boarder2"
+        android:onClick="healthExecute"
         android:padding="20dp"
-        android:onClick="businessExecute"
+        android:text="@string/health"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/boarder2"
+        android:onClick="sportsExecute"
+        android:padding="20dp"
+        android:text="@string/sports"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/boarder2"
-        android:text="@string/technology"
-        android:padding="20dp"
         android:onClick="technologyExecute"
+        android:padding="20dp"
+        android:text="@string/technology"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -51,52 +84,29 @@
         android:id="@+id/button4"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/science"
+        android:layout_marginTop="8dp"
         android:background="@drawable/boarder2"
-        android:padding="20dp"
         android:onClick="scienceExecute"
+        android:padding="20dp"
+        android:text="@string/science"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button2"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/sports"
+        android:layout_marginTop="8dp"
         android:background="@drawable/boarder2"
+        android:onClick="businessExecute"
         android:padding="20dp"
-        android:onClick="sportsExecute"
+        android:text="@string/business"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/health"
-        android:padding="20dp"
-        android:onClick="healthExecute"
-        android:background="@drawable/boarder2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/bbc_headlines"
-        android:padding="15dp"
-        android:onClick="BBCexecute"
-        android:background="@drawable/boarder2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

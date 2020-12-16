@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_view.*
 import kotlinx.android.synthetic.main.select_activity.*
 
-class SportActivity : AppCompatActivity(), NewsItemClicked {
+class SportsActivity : AppCompatActivity(), NewsItemClicked {
 
     private lateinit var mAdapter: newsAdapter
     var currentUrl: String? =null
@@ -71,7 +71,7 @@ class SportActivity : AppCompatActivity(), NewsItemClicked {
 
     private fun fetchData(){
         progressBar.visibility = View.VISIBLE
-        val url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=0a0230f4833a48a59dbfefdc4bc7d3ef"
+        val url = "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=9485dbed563145c5b58b6800baf4c4be"
         val jsonObjectRequest = object: JsonObjectRequest(
                 Method.GET,
                 url,
@@ -87,6 +87,7 @@ class SportActivity : AppCompatActivity(), NewsItemClicked {
                                 newsJsonObject.getString("author"),
                                 newsJsonObject.getString("url"),
                                 newsJsonObject.getString("urlToImage"),
+                            newsJsonObject.getString("publishedAt"),
                                 newsJsonObject.getString("description")
                         )
                         newsArray.add(news)
@@ -113,8 +114,6 @@ class SportActivity : AppCompatActivity(), NewsItemClicked {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         customTabsIntent.launchUrl(this, Uri.parse(item.url))
-
-        //Toast.makeText(this,"CLICKED ..${Uri.parse(item.url)}",Toast.LENGTH_LONG).show()
         currentUrl= Uri.parse(item.url).toString()
     }
 

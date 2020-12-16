@@ -57,33 +57,29 @@ class MainActivity : AppCompatActivity() {
 
     fun technologyExecute(view: View) {
         Toast.makeText(this, "Technology Section", Toast.LENGTH_LONG).show()
-        //val intent = Intent(this, TechnologyActivity::class.java)
-        //startActivity(intent)
+        val intent = Intent(this, TechnologyActivity::class.java)
+        startActivity(intent)
     }
 
     fun scienceExecute(view: View) {
         Toast.makeText(this, "Science Section", Toast.LENGTH_LONG).show()
-        //val intent = Intent(this, ScienceActivity::class.java)
-        //startActivity(intent)
+        val intent = Intent(this, ScienceActivity::class.java)
+        startActivity(intent)
     }
 
     fun sportsExecute(view: View) {
         Toast.makeText(this, "Sports Section", Toast.LENGTH_LONG).show()
-        //val intent = Intent(this, SportsActivity::class.java)
-        //startActivity(intent)
+        val intent = Intent(this, SportsActivity::class.java)
+        startActivity(intent)
     }
 
     fun healthExecute(view: View) {
         Toast.makeText(this, "Health Section", Toast.LENGTH_LONG).show()
-       // val intent = Intent(this, HealthActivity::class.java)
-        //startActivity(intent)
+        val intent = Intent(this, HealthActivity::class.java)
+        startActivity(intent)
     }
 
-    fun BBCexecute(view: View) {
-        Toast.makeText(this, "BBC Headlines", Toast.LENGTH_LONG).show()
-        //val intent = Intent(this, BBCheadlineActivity::class.java)
-        //startActivity(intent)
-    }
+
 
 
 }

@@ -56,6 +56,7 @@ class SelectNews : AppCompatActivity(), NewsItemClicked {
                                 newsJsonObject.getString("author"),
                                 newsJsonObject.getString("url"),
                                 newsJsonObject.getString("urlToImage"),
+                            newsJsonObject.getString("publishedAt"),
                                 newsJsonObject.getString("description")
                         )
                         newsArray.add(news)
