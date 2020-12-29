@@ -35,6 +35,8 @@
         android:layout_marginRight="15dp"
         android:ellipsize="end"
         android:maxLines="3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+
         android:text="Tye to Rahul, no ball, Rahul is swinging blindly here. Fuller and around off, he swings across the line and the ball might have also straightened a touch, whizzes past the outside edge. Oh hang on! The third umpire has called it a no-ball for overstepping. That's a harsh call as replays show Tye had something behind/ on the line"
         android:textColor="#E6000000"
         android:textSize="18sp"

@@ -1,7 +1,5 @@
 package com.example.dailynews
 
-import android.app.PendingIntent.getActivity
-import android.content.Context
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,14 +8,9 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_view.*
 import kotlinx.android.synthetic.main.select_activity.*
 
 class TechnologyActivity : AppCompatActivity(), NewsItemClicked {

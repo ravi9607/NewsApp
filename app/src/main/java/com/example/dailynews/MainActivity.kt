@@ -78,8 +78,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, HealthActivity::class.java)
         startActivity(intent)
     }
-
-
-
-
 }
