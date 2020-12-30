@@ -122,6 +122,14 @@ class TechnologyActivity : AppCompatActivity(), NewsItemClicked {
         Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
     }
 
+    override fun onShareClick(item: News) {
+        Toast.makeText(this, "sharinggggggggggg", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onlikeNews(item: News) {
+        Toast.makeText(this, "Like clicked ", Toast.LENGTH_SHORT).show()
+    }
+
 //    fun likebtn(view: View) {
 //        isLike=true
 //        if(isLike == true){

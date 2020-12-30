@@ -112,6 +112,8 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
         currentUrl= Uri.parse(item.url).toString()
     }
 
+
+
     fun shareNews(view: View){
 //        val i = Intent(Intent.ACTION_SEND)
 //        i.type = "text/plain"
@@ -120,6 +122,13 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
 
 
         Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onShareClick(item: News) {
+        Toast.makeText(this, "sharinggggggggggg", Toast.LENGTH_SHORT).show()
+    }
+    override fun onlikeNews(item: News) {
+        Toast.makeText(this, "Like clicked ", Toast.LENGTH_SHORT).show()
     }
 
 //    fun likebtn(view: View) {

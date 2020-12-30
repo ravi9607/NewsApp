@@ -103,6 +103,10 @@ class HeadlineActivity : AppCompatActivity(), NewsItemClicked {
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
     }
 
+    override fun onShareClick(item: News) {
+        Toast.makeText(this, "sharinggggggggggg", Toast.LENGTH_SHORT).show()
+    }
+
     override fun onItemClicked(item: News) {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
@@ -120,6 +124,10 @@ class HeadlineActivity : AppCompatActivity(), NewsItemClicked {
 
 
         Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onlikeNews(item: News) {
+        Toast.makeText(this, "Like clicked ", Toast.LENGTH_SHORT).show()
     }
 
 //    fun likebtn(view: View) {
