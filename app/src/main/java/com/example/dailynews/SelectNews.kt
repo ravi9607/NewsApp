@@ -1,5 +1,6 @@
 package com.example.dailynews
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -94,7 +95,14 @@ class SelectNews : AppCompatActivity(), NewsItemClicked {
     }
 
     override fun onShareClick(item: News) {
-        Toast.makeText(this, "sharinggggggggggg", Toast.LENGTH_SHORT).show()
+        currentUrl= Uri.parse(item.url).toString()
+
+
+        val intent= Intent(Intent.ACTION_SEND)
+        intent.type="text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT,"Hey, Checkout Important News  ${currentUrl}")
+        val chooser = Intent.createChooser(intent,"share News")
+        startActivity(chooser)
     }
 
 //    fun likebtn(view: View) {

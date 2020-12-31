@@ -1,11 +1,13 @@
 package com.example.dailynews
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import kotlinx.android.synthetic.main.select_activity.*
 
+@Suppress("DEPRECATION")
 class HealthActivity : AppCompatActivity(), NewsItemClicked {
 
     private lateinit var mAdapter: newsAdapter
@@ -21,6 +24,11 @@ class HealthActivity : AppCompatActivity(), NewsItemClicked {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_activity)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         fetchData()
@@ -123,7 +131,13 @@ class HealthActivity : AppCompatActivity(), NewsItemClicked {
     }
 
     override fun onShareClick(item: News) {
-        Toast.makeText(this, "sharinggggggggggg", Toast.LENGTH_SHORT).show()
+        currentUrl= Uri.parse(item.url).toString()
+
+        val intent= Intent(Intent.ACTION_SEND)
+        intent.type="text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT,"Hey, Checkout Important News  ${currentUrl}")
+        val chooser = Intent.createChooser(intent,"share News")
+        startActivity(chooser)
     }
 
     override fun onlikeNews(item: News) {

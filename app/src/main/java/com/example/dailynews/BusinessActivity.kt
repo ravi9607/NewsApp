@@ -1,11 +1,13 @@
 package com.example.dailynews
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import kotlinx.android.synthetic.main.select_activity.*
 
+@Suppress("DEPRECATION")
 class BusinessActivity : AppCompatActivity(), NewsItemClicked {
 
     private lateinit var mAdapter: newsAdapter
@@ -21,6 +24,11 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_activity)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         fetchData()
@@ -111,20 +119,31 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
         //Toast.makeText(this,"CLICKED ..${Uri.parse(item.url)}",Toast.LENGTH_LONG).show()
         currentUrl= Uri.parse(item.url).toString()
     }
-
-
-
-    fun shareNews(view: View){
+//    fun shareNews(view: View){
 //        val i = Intent(Intent.ACTION_SEND)
-//        i.type = "text/plain"
+//       i.type = "text/plain"
 //        i.putExtra(Intent.EXTRA_TEXT, "Hi, checkout this news  ${currentUrl}")
 //        startActivity(Intent.createChooser(i, "Share this news with"))
-
-
-        Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
-    }
+//
+//
+//        Toast.makeText(this,"SHAREING . ${currentUrl}", Toast.LENGTH_LONG).show()
+//    }
 
     override fun onShareClick(item: News) {
+        //val builder = CustomTabsIntent.Builder()
+        //val customTabsIntent = builder.build()
+        //customTabsIntent.launchUrl(this, Uri.parse(item.url))
+
+        //Toast.makeText(this,"CLICKED ..${Uri.parse(item.url)}",Toast.LENGTH_LONG).show()
+        currentUrl= Uri.parse(item.url).toString()
+
+
+        val intent=Intent(Intent.ACTION_SEND)
+        intent.type="text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT,"Hey, Checkout Important News  ${currentUrl}")
+        val chooser = Intent.createChooser(intent,"share News")
+        startActivity(chooser)
+
         Toast.makeText(this, "sharinggggggggggg", Toast.LENGTH_SHORT).show()
     }
     override fun onlikeNews(item: News) {
