@@ -5,12 +5,18 @@
 ### Icone    &   Splash Screen
 <img src='app/p1.jpeg' hight=400 width=300>      <img src='app/p2.jpeg' hight=400 width=300> 
 
-### Select News    &   Health News
-<img src='app/p3.jpeg' hight=400 width=300>      <img src='app/p4.jpeg' hight=400 width=300>      
+### Select News  
+<img src='app/d1.jpeg' hight=400 width=300>      
 
-### Tech News    &   Sport News
-<img src='app/p5.jpeg' hight=400 width=300>      <img src='app/p6.jpeg' hight=400 width=300> 
+## sports News
+<img src='app/d2.jpeg' hight=400 width=300>      
+
+### sharing News
+<img src='app/d3.jpeg' hight=400 width=300>      
+
+## Like news
+<img src='app/d4.jpeg' hight=400 width=300> 
 
 
-### Sport news in detail 
-<img src='app/p7.jpeg' hight=400 width=300>     
+### custom chrome tab
+<img src='app/d5.jpeg' hight=400 width=300>     
