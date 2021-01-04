@@ -23,7 +23,7 @@ class newsAdapter(private val listener: NewsItemClicked): RecyclerView.Adapter<n
         val descp: TextView = itemView.findViewById(R.id.decp)
         val date:TextView = itemView.findViewById(R.id.date)
         val author: TextView =  itemView.findViewById(R.id.author)
-        val share: ImageView=itemView.findViewById(R.id.shareNews)
+        val share: ImageView=itemView.findViewById(shareNews)
         val like: ImageView=itemView.findViewById(R.id.like)
 
     }

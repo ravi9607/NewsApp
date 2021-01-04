@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     fun headlineExecute(view: View) {
         Toast.makeText(this, "Headline Section", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, HealthActivity::class.java)
+        val intent = Intent(this, HeadlineActivity::class.java)
         startActivity(intent)
     }
 

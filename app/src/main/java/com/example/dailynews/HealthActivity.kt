@@ -25,6 +25,10 @@ class HealthActivity : AppCompatActivity(), NewsItemClicked {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_activity)
 
+        supportActionBar?.title = "Health News"
+//        setSupportActionBar(toolbar)
+//        toolbar.title = "My New Title"
+
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
