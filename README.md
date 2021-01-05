@@ -6,17 +6,25 @@
 <img src='app/p1.jpeg' hight=400 width=300>      <img src='app/p2.jpeg' hight=400 width=300> 
 
 ### Select News  
-<img src='app/d1.jpeg' hight=400 width=300>      
+<img src='app/u1.jpeg' hight=400 width=300>      
 
-## sports News
-<img src='app/d2.jpeg' hight=400 width=300>      
+## Headlines
+<img src='app/u2.jpeg' hight=400 width=300>      
 
-### sharing News
-<img src='app/d3.jpeg' hight=400 width=300>      
+### Business News
+<img src='app/u3.jpeg' hight=400 width=300>      
 
-## Like news
-<img src='app/d4.jpeg' hight=400 width=300> 
+## Science news
+<img src='app/u4.jpeg' hight=400 width=300> 
 
+### sports News
+<img src='app/u5.jpeg' hight=400 width=300>     
+
+### Like News
+<img src='app/u6.jpeg' hight=400 width=300>  
+
+### Share News
+<img src='app/u7.jpeg' hight=400 width=300>  
 
 ### custom chrome tab
-<img src='app/d5.jpeg' hight=400 width=300>     
+<img src='app/u8.jpeg' hight=400 width=300>
