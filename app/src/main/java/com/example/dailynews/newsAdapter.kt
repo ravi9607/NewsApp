@@ -1,11 +1,13 @@
 package com.example.dailynews
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -49,12 +51,13 @@ class newsAdapter(private val listener: NewsItemClicked): RecyclerView.Adapter<n
         return items.size
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: NewViewHolder, position: Int) {
         val currentItem = items[position]
         holder.titleView.text = currentItem.title
         holder.author.text = currentItem.author
         holder.descp.text=currentItem.description
-        holder.date.text=currentItem.publisheddate
+        holder.date.timestamp(currentItem.publisheddate)
         Glide.with(holder.itemView.context).load(currentItem.imageUrl).into(holder.image)
 
         holder.like.setOnClickListener {

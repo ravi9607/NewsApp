@@ -2,21 +2,28 @@ package com.example.dailynews
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import kotlinx.android.synthetic.main.select_activity.*
+import java.lang.Math.abs
 
 @Suppress("DEPRECATION")
-class SportsActivity : AppCompatActivity(), NewsItemClicked {
+class SportsActivity : AppCompatActivity(), NewsItemClicked , GestureDetector.OnGestureListener{
+
+
+    lateinit var gestureDetector: GestureDetector              // for onTouchEvent
+    var x1:Float=0.0f
+    var x2:Float=0.0f
+    var y1:Float=0.0f
+    var y2:Float=0.0f
+
 
     private lateinit var mAdapter: newsAdapter
     var currentUrl: String? =null
@@ -26,6 +33,8 @@ class SportsActivity : AppCompatActivity(), NewsItemClicked {
         setContentView(R.layout.select_activity)
 
         supportActionBar?.title = "Sports News"
+
+        gestureDetector = GestureDetector(this,this)
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -144,6 +153,92 @@ class SportsActivity : AppCompatActivity(), NewsItemClicked {
     override fun onlikeNews(item: News) {
         Toast.makeText(this, "Like clicked ", Toast.LENGTH_SHORT).show()
     }
+
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        gestureDetector.onTouchEvent(event)
+
+        when(event?.action){
+
+            0->{
+                x1=event.x
+                y1=event.y
+            }
+            1->{
+                x2=event.x
+                y2=event.y
+                val valueX:Float=x2-x1
+                val valueY:Float=y2-y1
+                if(abs(valueX)>10){
+                    if(x2>x1){
+                        Toast.makeText(this,"Right Swap",Toast.LENGTH_LONG).show()
+
+                    }else{
+                        Toast.makeText(this,"Left Swap",Toast.LENGTH_LONG).show()
+
+                    }
+                }else{
+                    if(y2>y1){
+                        //supportActionBar?.hide()
+                        Toast.makeText(this,"Top Swap",Toast.LENGTH_LONG).show()
+                    }else{
+                        //supportActionBar?.isShowing
+                        Toast.makeText(this,"Down Swap",Toast.LENGTH_LONG).show()
+                    }
+
+                }
+
+        }
+
+        }
+        return super.onTouchEvent(event)
+    }
+
+    override fun onDown(e: MotionEvent?): Boolean {
+        Toast.makeText(this,"onDown",Toast.LENGTH_LONG).show()
+        //TODO("Not yet implemented")
+        return false
+    }
+
+    override fun onShowPress(e: MotionEvent?) {
+        Toast.makeText(this,"onShowPress",Toast.LENGTH_LONG).show()
+       // TODO("Not yet implemented")
+    }
+
+    override fun onSingleTapUp(e: MotionEvent?): Boolean {
+        Toast.makeText(this,"onSingleTapup",Toast.LENGTH_LONG).show()
+       // TODO("Not yet implemented")
+        return false
+    }
+
+    override fun onScroll(
+        e1: MotionEvent?,
+        e2: MotionEvent?,
+        distanceX: Float,
+        distanceY: Float
+    ): Boolean {
+       // TODO("Not yet implemented")
+        Toast.makeText(this,"onScroll",Toast.LENGTH_LONG).show()
+        return false
+    }
+
+    override fun onLongPress(e: MotionEvent?) {
+        Toast.makeText(this,"onLongPress",Toast.LENGTH_LONG).show()
+       // TODO("Not yet implemented")
+    }
+
+    override fun onFling(
+        e1: MotionEvent?,
+        e2: MotionEvent?,
+        velocityX: Float,
+        velocityY: Float
+    ): Boolean {
+        //TODO("Not yet implemented")
+        Toast.makeText(this,"onFling",Toast.LENGTH_LONG).show()
+        return false
+    }
+
+
 
 //    fun likebtn(view: View) {
 //        isLike=true

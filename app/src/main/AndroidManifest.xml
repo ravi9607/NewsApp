@@ -25,6 +25,10 @@
         <activity android:name=".TechnologyActivity"></activity>
         <activity android:name=".SportsActivity"></activity>
         <activity android:name=".ScienceActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
