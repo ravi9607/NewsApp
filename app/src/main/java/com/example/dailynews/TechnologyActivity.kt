@@ -1,5 +1,6 @@
 package com.example.dailynews
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -73,7 +74,16 @@ class TechnologyActivity : AppCompatActivity(), NewsItemClicked {
     }
 
     private fun fetchData(){
-        progressBar.visibility = View.VISIBLE
+        //progressBar.visibility = View.VISIBLE
+
+        //progressBar.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
+
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Fetching News ...")
+        //progressDialog.setMessage("Fetching Latest News")
+        progressDialog.show()
+
         val url = "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=9485dbed563145c5b58b6800baf4c4be"
         val jsonObjectRequest = object: JsonObjectRequest(
                 Method.GET,
@@ -94,7 +104,8 @@ class TechnologyActivity : AppCompatActivity(), NewsItemClicked {
                                 newsJsonObject.getString("description")
                         )
                         newsArray.add(news)
-                        progressBar.visibility = View.GONE
+                        //progressBar.visibility = View.GONE
+                        progressDialog.dismiss()
                         //Toast.makeText(this," updated", Toast.LENGTH_LONG).show()
                     }
                     mAdapter.updateNews(newsArray)

@@ -1,5 +1,6 @@
 package com.example.dailynews
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,9 @@ import kotlinx.android.synthetic.main.select_activity.*
 class BusinessActivity : AppCompatActivity(), NewsItemClicked {
 
     private lateinit var mAdapter: newsAdapter
+
+
+
     var currentUrl: String? =null
     var isLike : Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +30,8 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
         setContentView(R.layout.select_activity)
 
         supportActionBar?.title = "Business News"
+
+
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -73,7 +79,14 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
     }
 
     private fun fetchData(){
-        progressBar.visibility = View.VISIBLE
+        //progressBar.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
+        
+        val progressDialog = ProgressDialog(this@BusinessActivity)
+        progressDialog.setTitle("Fetching News ...")
+        //progressDialog.setMessage("Fetching Latest News")
+        progressDialog.show()
+
         val url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9485dbed563145c5b58b6800baf4c4be"
         val jsonObjectRequest = object: JsonObjectRequest(
                 Method.GET,
@@ -94,7 +107,9 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
                                 newsJsonObject.getString("description")
                         )
                         newsArray.add(news)
-                        progressBar.visibility = View.GONE
+                        //progressBar.visibility = View.GONE
+                        progressDialog.dismiss()
+
                         //Toast.makeText(this," updated", Toast.LENGTH_LONG).show()
                     }
                     mAdapter.updateNews(newsArray)
