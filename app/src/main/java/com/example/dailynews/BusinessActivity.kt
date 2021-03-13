@@ -2,6 +2,7 @@ package com.example.dailynews
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import kotlinx.android.synthetic.main.select_activity.*
@@ -20,7 +22,7 @@ import kotlinx.android.synthetic.main.select_activity.*
 class BusinessActivity : AppCompatActivity(), NewsItemClicked {
 
     private lateinit var mAdapter: newsAdapter
-
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
 
     var currentUrl: String? =null
@@ -30,6 +32,12 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
         setContentView(R.layout.select_activity)
 
         supportActionBar?.title = "Business News"
+
+        swipeRefreshLayout = findViewById(R.id.swipeRefresh)
+        swipeRefreshLayout.setColorSchemeColors(Color.GREEN,Color.RED,Color.BLUE)
+        swipeRefreshLayout.setOnRefreshListener {
+            fetchData()
+        }
 
 
 
@@ -79,13 +87,15 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
     }
 
     private fun fetchData(){
-        //progressBar.visibility = View.VISIBLE
         progressBar.visibility = View.GONE
+        swipeRefreshLayout.isRefreshing = true
+        //progressBar.visibility = View.VISIBLE
+
         
-        val progressDialog = ProgressDialog(this@BusinessActivity)
-        progressDialog.setTitle("Fetching News ...")
+        //val progressDialog = ProgressDialog(this@BusinessActivity)
+        //progressDialog.setTitle("Fetching News ...")
         //progressDialog.setMessage("Fetching Latest News")
-        progressDialog.show()
+        //progressDialog.show()
 
         val url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9485dbed563145c5b58b6800baf4c4be"
         val jsonObjectRequest = object: JsonObjectRequest(
@@ -108,7 +118,8 @@ class BusinessActivity : AppCompatActivity(), NewsItemClicked {
                         )
                         newsArray.add(news)
                         //progressBar.visibility = View.GONE
-                        progressDialog.dismiss()
+                        swipeRefreshLayout.isRefreshing = false
+                        //progressDialog.dismiss()
 
                         //Toast.makeText(this," updated", Toast.LENGTH_LONG).show()
                     }
